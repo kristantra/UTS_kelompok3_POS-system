@@ -1,14 +1,7 @@
-# Judul Proyek
+# UTS_kelompok3_POS-system
+projek MSIB POS system
 
-Projek CMS Laravel MSIB gits.id
-
-## Author
-
-- Name: Dwi Krisna Tantra
-- University: Petra Christian University
-- Stack: Laravel, Laravel Breeze, Bootstrap
-
-
+# cara merge
 
 ### Persayaratan
 
@@ -47,11 +40,17 @@ Projek CMS Laravel MSIB gits.id
 
 6. perbarui berkas .env dengan  database anda dan pengaturan konfigurasi lainnya
 
-
 7. jalankan migrasi database
 - php artisan migrate
 
-8. jalankan server
+8. seeder, jalankan command php artisan db:seed       
+
+9. jalankan command 'npm run dev'
+
+10. jalankan server
 - php artisan serve
 
-9. buka browser dan buka `http://localhost:8000` untuk mengakses aplikasi.
+11. buka browser dan buka `http://localhost:8000` untuk mengakses aplikasi.
+
+12. email: admin@gmail.com
+password: password
