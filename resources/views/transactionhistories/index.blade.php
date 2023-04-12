@@ -2,7 +2,13 @@
 
 @section('content')
     <div class="container">
-        <h1>Transaction History</h1>
+        <div class="card full-height">
+            <div class="card-header">
+                <div class="text-center">
+                    <h1>Transaction List </h1> 
+                </div>
+            </div>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>

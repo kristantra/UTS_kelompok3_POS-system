@@ -7,6 +7,13 @@
         {{ session('success') }}
     </div>
 @endif
+<div class="card full-height">
+    <div class="card-header">
+        <div class="text-center">
+            <h1>Product </h1> 
+        </div>
+    </div>
+</div>
 <div class="row mb-3">
     <div class="col-md-12">
         <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>

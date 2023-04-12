@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="card full-height">
+    <div class="card-header">
+        <div class="text-center">
+            <h1>Cart </h1> 
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row mb-3">
         <!-- Product selection -->

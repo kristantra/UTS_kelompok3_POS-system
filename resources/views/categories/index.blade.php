@@ -3,10 +3,13 @@
 @section('content')
 
 <div class="container">
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <h1>Categories</h1>
+    <div class="card full-height">
+        <div class="card-header">
+            <div class="text-center">
+                <h1>Categories </h1> 
+            </div>
         </div>
+    </div>
         
         <div class="col-md-6">
             <form action="{{ route('categories.index') }}" method="get" class="d-inline">

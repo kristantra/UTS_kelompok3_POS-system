@@ -50,21 +50,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-list-alt"></i>
-                                <p>Categories</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('products.index') }}" class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-box-open"></i>
                                 <p>Products</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>Profile</p>
+                            <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-list-alt"></i>
+                                <p>Categories</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -73,11 +67,16 @@
                                 <p>Cart</p>
                             </a>
                         </li>
-                    
                         <li class="nav-item">
                             <a href="{{ route('transactionhistories.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-history"></i>
-                                <p>Transaction History</p>
+                                <p>Transaction List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Profile</p>
                             </a>
                         </li>
                         {{-- berakhir di sini --}}
