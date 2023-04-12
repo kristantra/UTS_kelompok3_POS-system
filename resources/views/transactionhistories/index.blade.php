@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="container">
-        <h1>Transaction History</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight" style="margin-bottom: 5px;">
+            {{ __('Transaction History') }}
+        </h2>
         <table class="table table-striped">
             <thead>
                 <tr>

@@ -7,8 +7,6 @@
 <form action="{{ route('products.update', $product->id) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-    
-    
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" name="input_nama" value="{{ $product->name }}" required>

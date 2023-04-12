@@ -53,7 +53,7 @@ class CategoryController extends Controller
         $categories->name = $request->input_nama;
         $categories->description = $request->input_description;
         $categories->save();
-        return redirect()->route('products.index')->with('success', 'Categories Created Successfully.');
+        return redirect()->route('categories.index')->with('success', 'Categories Created Successfully.');
     }
 
     /**
@@ -78,17 +78,19 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::findorFail($id);
-        return view('categories.edit', compact('categories'));
+        return view('categories.edit', compact('category'));
     }
 
     public function update(Request $request, $id)
     {
-        $validateData = $request->validate([
-            'input_nama' => 'required|unique:categories,name',
+        $request->validate([
+            'input_nama' => 'required',
             'input_description' => 'required',
         ]);
         $categories = Category::findorFail($id);
-        $categories->update($validateData);
+        $categories->name = $request->input_nama;
+        $categories->description = $request->input_description;
+        $categories->save();
 
         return redirect()->route('categories.index')->with('success', 'categories updated successfully');
     }

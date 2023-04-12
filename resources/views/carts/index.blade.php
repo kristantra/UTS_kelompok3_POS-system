@@ -6,7 +6,7 @@
         <!-- Product selection -->
         <div class="col-md-4">
             <select class="custom-select" id="inputProduct" onchange="updateProductId(this.value)">
-                <option selected>product name<option>
+                <option selected>Product Name<option>
                 @foreach($products as $product)
                     <option value="{{ $product->id }}">{{ $product->name }}</option>
                 @endforeach
@@ -14,9 +14,10 @@
         </div>
 
         <!-- Quantity -->
-        <div class="col-md-2">
-            <p>Available Quantity: <span id="availableQuantity"></span></p>
-            <input type="number" class="form-control" id="inputQuantity" onchange="updateQuantity(this.value)" min="1" placeholder="0">
+        <div class="col-md-3">
+            {{-- <span id="availableQuantity"></span> --}}
+            {{-- <label for="inputQuantity">Available Quantity</label> --}}
+            <input type="number" class="form-control" id="inputQuantity" onchange="updateQuantity(this.value)" min="1" placeholder="Available Quantity" name="availableQuantity">
         </div>
 
         <!-- Add to cart button -->
@@ -25,15 +26,15 @@
                 @csrf
                 <input type="hidden" name="product_id" id="hiddenProductId" value="">
                 <input type="hidden" name="quantity" id="hiddenQuantity" value="">
-                <button type="submit" class="btn btn-danger">Add to cart</button>
+                <button type="submit" class="btn btn-danger" style="color: black;">Add to cart</button>
             </form>
         </div>
     </div>
 
     <!-- Cart table -->
     <div class="row">
-        <div class="col-md-6">
-            <table class="table table-striped">
+        <div class="col-md-11">
+            <table class="table table-striped" >
                 <thead>
                     <tr>
                         <th scope="col">Product Name</th>
@@ -46,7 +47,7 @@
                         <tr>
                             <td>{{ $cart->product->name }}</td>
                             <td>{{ $cart->quantity }}</td>
-                            <td>${{ $cart->product->price * $cart->quantity }}</td>
+                            <td>Rp.{{ $cart->product->price * $cart->quantity }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -56,27 +57,27 @@
 
     <!-- Total and action buttons -->
     <div class="row mb-3">
-        <div class="col-md-6">
-            <h3>Total: Rp<span id="totalAmount">{{ $carts->sum(function ($cart) {
+        <div class="col-md-11 ">
+            <h3 style="margin-left: 7px;">Total :<span id="totalAmount" style="margin-left: 62%; ">Rp.{{ $carts->sum(function ($cart) {
                 return $cart->product->price * $cart->quantity;
             }) }}</span></h3>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" >
         <!-- Cancel button -->
-        <div class="col-md-6">
+        <div class="col-md-7" style="margin-left: 6px;">
             <form action="{{ route('cart.clear') }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-danger">Cancel</button>
+                <button type="submit" class="btn btn-danger" style="color: black;">Cancel</button>
             </form>
         </div>
 
         <!-- Submit button -->
-        <div class="col-md-6">
+        <div class="col-md-3" style="margin-left: 12px;">
             <form action="{{ route('cart.submit') }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" style="color: black;">Submit</button>
             </form>
         </div>
     </div>

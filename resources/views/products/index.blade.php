@@ -12,6 +12,7 @@
         <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>
     </div>
 </div>
+
 <div class="row">
     @foreach ($products as $product)
         <div class="col-md-4 mb-3">
