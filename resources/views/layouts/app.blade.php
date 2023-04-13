@@ -25,7 +25,7 @@
                 <!-- Brand Logo -->
                 <a href="{{route('dashboard')}}" class="brand-link">
                     <img src="{{ asset('images/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                        style="opacity: .8">
+                        style="opacity: .9; width="500" height="500"">
                     <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
                 </a>
 
@@ -45,31 +45,32 @@
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- menu items ku masuk sini-->
-                            
+
+                                {{-- Menu Dasboard --}}
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-tachometer-alt"></i>
                                         <p>Dashboard</p>
                                     </a>
                                 </li>
+
+                                {{-- Menu Category --}}
                                 <li class="nav-item">
                                     <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-list-alt"></i>
                                         <p>Categories</p>
                                     </a>
                                 </li>
+
+                                {{-- Menu Products --}}
                                 <li class="nav-item">
                                     <a href="{{ route('products.index') }}" class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-box-open"></i>
                                         <p>Products</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-user"></i>
-                                        <p>Profile</p>
-                                    </a>
-                                </li>
+
+                                {{-- Menu Carts --}}
                                 <li class="nav-item">
                                     <a href="{{ route('carts.index') }}" class="nav-link">
                                         <i class="nav-icon fas fa-shopping-cart"></i>
@@ -77,14 +78,22 @@
                                     </a>
                                 </li>
                             
+                                {{-- Menu Transaction Histories --}}
                                 <li class="nav-item">
                                     <a href="{{ route('transactionhistories.index') }}" class="nav-link">
                                         <i class="nav-icon fas fa-history"></i>
                                         <p>Transaction History</p>
                                     </a>
                                 </li>
+
+                                {{-- Menu Profile --}}
+                                <li class="nav-item">
+                                    <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Profile</p>
+                                    </a>
+                                </li>
                                 {{-- berakhir di sini --}}
-                            
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->

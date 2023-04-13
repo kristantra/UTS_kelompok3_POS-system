@@ -13,11 +13,17 @@
             </select>
         </div>
 
+        {{-- Avaliabel Quantity --}}
+        <div class="col-md-2">
+            <div class="border p-2" style="border-radius: 5px; background-color: white;"> <!-- menambahkan border dan padding -->
+                {{-- <label for="availableQuantity">Available Quantity</label> --}}
+                <span id="availableQuantity"></span>
+              </div>
+        </div>
+
         <!-- Quantity -->
-        <div class="col-md-3">
-            {{-- <span id="availableQuantity"></span> --}}
-            {{-- <label for="inputQuantity">Available Quantity</label> --}}
-            <input type="number" class="form-control" id="inputQuantity" onchange="updateQuantity(this.value)" min="1" placeholder="Available Quantity" name="availableQuantity">
+        <div class="col-md-2">
+            <input type="number" class="form-control" id="inputQuantity" onchange="updateQuantity(this.value)" min="1" placeholder="Quantity" name="Quantity" style="border-radius: 5px; padding-left: 10px;">
         </div>
 
         <!-- Add to cart button -->
@@ -26,7 +32,7 @@
                 @csrf
                 <input type="hidden" name="product_id" id="hiddenProductId" value="">
                 <input type="hidden" name="quantity" id="hiddenQuantity" value="">
-                <button type="submit" class="btn btn-danger" style="color: black;">Add to cart</button>
+                <button type="submit" class="btn btn-success" style="color: black;">Add to cart</button>
             </form>
         </div>
     </div>
@@ -96,7 +102,7 @@
             if (product) {
                 quantityDisplay.innerText = product.quantity;
             } else {
-                quantityDisplay.innerText = '';
+                quantityDisplay.innerText = 'Avaliable Quanity';
             }
         }
     
