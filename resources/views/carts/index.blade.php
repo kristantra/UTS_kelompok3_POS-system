@@ -120,5 +120,5 @@
         // Initialize the available quantity display for the initially selected product
         displayProductQuantity(document.getElementById('inputProduct').value);
     </script>
-    {{-- udapte3 --}}
+    
 @endsection

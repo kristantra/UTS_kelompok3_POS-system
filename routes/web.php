@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransactionHistoryController;
 use Illuminate\Support\Facades\Route;
@@ -26,9 +27,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->route('login');
 });
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     //categories
@@ -47,11 +48,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-    
+
+
     //profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // user
+    Route::middleware(['auth:web'])->group(function () {
+        Route::get('/user/profile', [UserController::class, "edit"])->name('profile.edit');
+        Route::put('/user/profile', [UserController::class, "update"])->name('profile.update');
+    });
 
     //tambahan
     Route::get('/carts', [App\Http\Controllers\CartController::class, 'index'])->name('carts.index');
@@ -59,6 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/carts/clear', [App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
     Route::post('/carts/submit', [App\Http\Controllers\CartController::class, 'submit'])->name('cart.submit');
     Route::get('/transactionhistories/index', [TransactionHistoryController::class, 'index'])->name('transactionhistories.index');
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 });
 
 require __DIR__ . '/auth.php';

@@ -24,7 +24,7 @@
                                 {{ $item->product->name }} ({{ $item->quantity }})<br>
                             @endforeach
                         </td>
-                        <td>${{ $transaction->total_amount }}</td>
+                        <td>Rp.{{ $transaction->total_amount }}</td>
                         <td>{{ $transaction->status }}</td>
                         <td>{{ $transaction->created_at }}</td>
                     </tr>
