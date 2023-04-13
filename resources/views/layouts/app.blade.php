@@ -31,53 +31,77 @@
             <div class="sidebar">
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <a href="{{route('profile.edit')}}">
                     <div class="image">
-                        <img src="{{ asset('avatars/default/fotoadmin.png') }}" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('images/profile.png')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">{{ auth()->user()->name }}</a>
                     </div>
+                    </a>
                 </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- menu items ku masuk sini-->
+
+                        {{-- Menu Dashboard --}}
                         <li class="nav-item">
                             <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
+
+                        {{-- Menu Products --}}
                         <li class="nav-item">
                             <a href="{{ route('products.index') }}" class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-box-open"></i>
                                 <p>Products</p>
                             </a>
                         </li>
+
+                        {{-- Menu Category --}}
                         <li class="nav-item">
                             <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-list-alt"></i>
                                 <p>Categories</p>
                             </a>
                         </li>
+
+                        {{-- Menu Carts --}}
                         <li class="nav-item">
-                            <a href="{{ route('carts.index') }}" class="nav-link">
+                            <a href="{{ route('carts.index') }}" class="nav-link {{ request()->routeIs('carts.*') ? 'active' : ''}}">
                                 <i class="nav-icon fas fa-shopping-cart"></i>
                                 <p>Cart</p>
                             </a>
                         </li>
+
+                        {{-- Menu Transaction History --}}
                         <li class="nav-item">
-                            <a href="{{ route('transactionhistories.index') }}" class="nav-link">
+                            <a href="{{ route('transactionhistories.index') }}" class="nav-link {{ request()->routeIs('transactionhistory.*') ? 'active' : ''}}">
                                 <i class="nav-icon fas fa-history"></i>
                                 <p>Transaction List</p>
                             </a>
                         </li>
+
+                        {{-- Menu Profile --}}
                         <li class="nav-item">
                             <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Profile</p>
                             </a>
+                        </li>
+
+                        {{-- Menu Logout  --}}
+                        <li class="nav-item" style="margin-left: 20px;">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                         {{-- berakhir di sini --}}
                     </ul>

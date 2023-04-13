@@ -3,13 +3,10 @@
 @section('content')
 
 <div class="container">
-    <div class="card full-height">
-        <div class="card-header">
-            <div class="text-center">
-                <h1>Categories </h1> 
-            </div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <a href="{{ route('categories.create') }}" class="btn btn-primary">Add Category</a>
         </div>
-    </div>
         
         <div class="col-md-6">
             <form action="{{ route('categories.index') }}" method="get" class="d-inline">
@@ -23,10 +20,11 @@
                 </div>
             </form>
             @if (request('category_id'))
+                <a href="{{ route('categories.edit', request('category_id')) }}" class="btn btn-warning" style="margin-top: 5px;">Edit</a>
                 <form action="{{ route('categories.destroy', request('category_id')) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this category? This will also delete all related products.');">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger" style="background-color: red; color: white;">Delete Category</button>
+                    <button type="submit" class="btn btn-danger" style="background-color: red; color: white; margin-top: 5px;">Delete</button>
                 </form>
             @endif
         </div>

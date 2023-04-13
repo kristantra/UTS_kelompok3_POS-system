@@ -78,7 +78,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::findorFail($id);
-        return view('categories.edit', compact('categories'));
+        return view('categories.edit', compact('category'));
     }
 
     public function update(Request $request, $id)

@@ -2,13 +2,9 @@
 
 @section('content')
     <div class="container">
-        <div class="card full-height">
-            <div class="card-header">
-                <div class="text-center">
-                    <h1>Transaction List </h1> 
-                </div>
-            </div>
-        </div>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight" style="margin-bottom: 5px;">
+            {{ __('Transaction History') }}
+        </h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -28,7 +24,7 @@
                                 {{ $item->product->name }} ({{ $item->quantity }})<br>
                             @endforeach
                         </td>
-                        <td>${{ $transaction->total_amount }}</td>
+                        <td>Rp.{{ $transaction->total_amount }}</td>
                         <td>{{ $transaction->status }}</td>
                         <td>{{ $transaction->created_at }}</td>
                     </tr>

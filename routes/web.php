@@ -36,7 +36,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
@@ -49,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+    
     //profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -56,8 +57,7 @@ Route::middleware('auth')->group(function () {
 
     // user
     Route::middleware(['auth:web'])->group(function () {
-        Route::get('/user/profile', [UserController::class,"edit"])->name('profile.edit');
-           
+        Route::get('/user/profile', [UserController::class,"edit"])->name('profile.edit');     
         Route::put('/user/profile', [UserController::class,"update"])->name('profile.update');
     });
 
@@ -67,6 +67,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/carts/clear', [App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
     Route::post('/carts/submit', [App\Http\Controllers\CartController::class, 'submit'])->name('cart.submit');
     Route::get('/transactionhistories/index', [TransactionHistoryController::class, 'index'])->name('transactionhistories.index');
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
 });
 
 require __DIR__ . '/auth.php';
